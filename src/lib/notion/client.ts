@@ -402,6 +402,13 @@ export async function downloadFile(url: URL) {
   }
 
   const filename = decodeURIComponent(url.pathname.split('/').slice(-1)[0])
+
+  // 檢查文件名是否為空（通常發生在 URL 以斜線結尾的情況）
+  if (!filename || filename.trim() === '') {
+    console.log('跳過無效的文件名:', url.toString())
+    return Promise.resolve()
+  }
+
   const filepath = `${dir}/${filename}`
 
   const writeStream = createWriteStream(filepath)
