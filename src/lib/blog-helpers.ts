@@ -146,7 +146,7 @@ export const getPageLink = (page: number, tag: string) => {
         BASE_PATH,
         `/tag/${encodeURIComponent(tag)}/page/${page.toString()}`
       )
-    : pathJoin(BASE_PATH, `/page/${page.toString()}`)
+    : pathJoin(BASE_PATH, `/posts/page/${page.toString()}`)
 }
 
 export const getDateStr = (date: string) => {
